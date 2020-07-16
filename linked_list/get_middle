@@ -1,0 +1,12 @@
+#s.c ->O(1)
+#t.c -> o(n)
+https://practice.geeksforgeeks.org/problems/finding-middle-element-in-a-linked-list/1
+
+int getMiddle(Node *head)
+{
+   // Your code here
+   Node*f=head;
+   Node *e=head;
+   while((e!=NULL && e->next!=NULL)){
+       f=f->next;
+       e=e->next->next;
