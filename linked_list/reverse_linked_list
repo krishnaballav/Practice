@@ -1,0 +1,22 @@
+#tc O(n)
+#sc o(3)
+https://practice.geeksforgeeks.org/problems/reverse-a-linked-list/1
+
+*/
+// Should reverse list and return new head.
+Node* reverseList(Node *head)
+{
+  // Your code here
+  Node*curr=head;
+  Node*next=NULL;
+  Node * prev=NULL;
+  while(curr){
+      next=curr->next;
+      curr->next=prev;
+      prev=curr;
+      curr=next;
+  }
+  
+   return prev;
+    
+}
