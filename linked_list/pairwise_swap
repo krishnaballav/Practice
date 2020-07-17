@@ -1,0 +1,25 @@
+
+https://practice.geeksforgeeks.org/problems/pairwise-swap-elements-of-a-linked-list-by-swapping-data/1
+# tc O(n)
+#sc O(1)
+Node* pairWiseSwap(struct Node* head) {
+    
+    // The task is to complete this method
+    if (!head || !head->next)
+    {
+        return head;
+    }
+    Node*curr=head;
+    Node *next;
+    
+    
+   while(  curr&& curr->next!=NULL ){
+       int p=curr->data;
+       next=curr->next;
+       
+       curr->data=next->data;
+       next->data=p;
+       curr=curr->next->next;
+       
+   }
+      return head;  
