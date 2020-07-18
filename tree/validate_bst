@@ -1,0 +1,23 @@
+
+s.c O(n)
+t.c O(n)
+
+def abc(root):
+    #code here
+    if root == None:
+            return []
+    return abc(root.left) + [root.data] + abc(root.right)
+    
+    
+  
+    
+    
+    
+
+def isBST( root):
+    a=abc(root)
+    
+    for i in range(1,len(a)):
+        if a[i-1]>=a[i]:
+            return 0
+    return 1
