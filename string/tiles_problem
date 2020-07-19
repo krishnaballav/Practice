@@ -1,0 +1,15 @@
+https://leetcode.com/problems/letter-tile-possibilities/submissions/
+
+
+
+import itertools
+class Solution:
+    def numTilePossibilities(self, tiles: str) -> int:
+        a=[]
+        for j in  range(1,len(tiles)+1):
+            for i in set(itertools.permutations( tiles, j  )):
+                a.append(i)
+        return(len(a))
+        
+        
+        
