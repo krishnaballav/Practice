@@ -1,0 +1,27 @@
+https://practice.geeksforgeeks.org/problems/permutations-of-a-given-string-1587115620/1/?track=ppc-recursion&batchId=221
+
+2
+ABC
+ABSG
+
+Output:
+ABC ACB BAC BCA CAB CBA 
+ABGS ABSG AGBS AGSB ASBG ASGB BAGS BASG BGAS BGSA BSAG BSGA GABS GASB GBAS GBSA GSAB GSBA SABG SAGB SBAG SBGA SGAB SGBA
+
+
+
+
+
+
+import itertools
+##Complete this function
+def permutation(S):
+    ##Your code here
+    a=[]
+    
+    for j in set(itertools.permutations(S,len(S))):
+            p=''.join(str(n) for n in j)
+            a.append(p)
+    #return a
+    a.sort()
+    print(" ".join(str(k) for k in a), end="") /or  print(*a,sep=" " ,end="")
