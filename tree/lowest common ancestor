@@ -1,0 +1,38 @@
+
+
+#User function Template for python3
+
+'''
+class Node:
+    def __init__(self, value):
+        self.left = None
+        self.data = value
+        self.right = None
+'''
+# If LCA exist, return reference to it. If
+# If both n1 and n2 are not present, 
+# rturn None. Else if left subtree contains any 
+#  of them return pointer to left.
+def lca(root, n1, n2):
+    # Code here
+    if root is None:
+        return None
+   
+    if root.data ==n1 or root.data == n2:
+        return root
+    
+    
+    lroot=lca(root.left , n1,n2)
+    rroot = lca(root.right , n1 , n2)
+    if lroot and rroot :
+        return root
+    if lroot!=None:
+        return lroot
+    else:
+        return rroot
+
+
+
+
+
+
