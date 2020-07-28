@@ -1,0 +1,16 @@
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock/submissions/
+
+
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        #dp=[[0 for i in range(len(prices))] for j in range(len(prices))]
+        if len(prices)==0:
+            return 0
+        minval=prices[0]
+        maxval=0
+        for i in range( len(prices)):
+            if prices[i]<minval:
+                minval=prices[i]
+            if prices[i]-minval>maxval:
+                maxval=prices[i]-minval
+        return maxval
