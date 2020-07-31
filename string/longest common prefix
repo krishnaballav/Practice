@@ -1,0 +1,15 @@
+#longest commom prefix
+o(n) where n is no of strings
+
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        if len(strs)==0:
+            return ""
+        short=min(strs, key=len)
+        for i,c in enumerate(short):
+            for j in strs:
+                if j[i]!=c:
+                    return short[:i]
+        return short
+                    
+            
