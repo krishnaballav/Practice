@@ -1,0 +1,17 @@
+class Solution:
+    def findMaxLength(self, nums: List[int]) -> int:
+        m=0
+        d={}
+        s=0
+        for j,i in enumerate(nums):
+            if i==0:
+                s-=1
+            else:
+                s+=1
+            if s==0:
+                m=max(m, j+1)
+            if s in d:
+                m=max(m , j-d[s])
+            else:
+                d[s]=j
+        return m
