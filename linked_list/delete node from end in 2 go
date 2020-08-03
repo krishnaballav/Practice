@@ -1,0 +1,24 @@
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode *temp=new ListNode(0);
+            temp->next=head;
+        ListNode *temp1=head;
+        int c=0;
+        while(temp1){
+            c++;
+            temp1=temp1->next;
+        }
+        n=c-n;
+        temp1=temp;
+        while(n--){
+            temp1=temp1->next;
+        }
+        temp1->next=temp1->next->next;
+        return temp->next;
+    
+        
+        
+        
+    }
+};
