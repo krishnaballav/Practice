@@ -1,37 +1,37 @@
-class MinStack:
-
+class stack:
     def __init__(self):
-        """
-        initialize your data structure here.
-        
-        """
         self.s=[]
-        self.a=[]
+        self.ss=[]
+        
         
 
-    def push(self, x: int) -> None:
+    def push(self,x):
+        #CODE HERE
         self.s.append(x)
-        if len(self.a)==0 or x<=self.a[-1]:
-            self.a.append(x)
-        
-        
-        
-
-    def pop(self) -> None:
-        e = self.s.pop()
-        if e == self.a[-1]:
-            self.a.pop()
+        if len(self.ss)==0 or x<=self.ss[-1]:
+            self.ss.append(x)
+        return
         
 
-    def top(self) -> int:
-        return self.s[-1]
-        
-
-    def getMin(self) -> int:
-        if len(self.a):
-            return self.a[-1]
+    def pop(self):
+        #CODE HERE
+        if len(self.s)>0:
+           e = self.s.pop()
+           if e == self.ss[-1]:
+            self.ss.pop()
+           return e
         else:
-            return 0
+           return (-1)
+        
+
+    def getMin(self):
+        #CODE HERE
+        if len(self.ss)==0:
+            return -1
+        else:
+            return self.ss[-1]
+        
+          
     
 
 
