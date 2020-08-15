@@ -1,0 +1,29 @@
+class Solution:
+    # @param A : list of integers
+    # @return an integer
+    def solve(self, A):
+        if len(A)==1:
+            return A[0]
+        
+        s=sum(A)
+        l=len(A)
+        dp=[[False for _ in range(s+1) ] for k in range(l+1)]
+        for i in range(l+1):
+            dp[0][i]=True
+        for i in range(1,l+1):
+            for j in range(1,s+1):
+                dp[i][j]=dp[i-1][j]
+                if j>=A[i-1]:
+                    dp[i][j]=dp[i][j] or dp[i-1][j-A[i-1]]
+        s1=s//2+1
+        p=[]
+        m=9999
+        for i in range(s1):
+            if(dp[l][i]):
+                p.append(i)
+            else:
+                p.append(0)
+        for i in range(s1):
+            if p[i]:
+                m=min(m,s-2*p[i])
+        return m
