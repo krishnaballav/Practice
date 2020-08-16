@@ -1,0 +1,24 @@
+tc=O(m*n)
+sc=O(m*n)
+
+t=int(input())
+while(t):
+    t-=1
+    a,b=(input().split())
+    a=int(a)
+    b=int(b)
+    A=input()
+    B=input()
+    dp=[[0 for i in range(a+1)]for j in range(b+1)]
+    for i in range(b+1):
+        for j in range(a+1):
+            if i==0 or j==0:
+                dp[i][j]=0
+            elif A[j-1]==B[i-1]:
+                dp[i][j]=1+dp[i-1][j-1]
+            else:
+                dp[i][j]=0
+    m=0
+    for i in range(b+1):
+        m=max(m,max(dp[i]))
+    print( m)
