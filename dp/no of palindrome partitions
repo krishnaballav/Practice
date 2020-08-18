@@ -24,3 +24,47 @@ while(t):
             
         
     print(lcs(s,i,j))
+    
+    
+    
+    
+    
+    
+    class Solution:
+    # @param A : string
+    # @return an integer
+    def minCut(self, A):
+        n=len(A)
+        dp=[[-1 for i in range(n)]for j in range((n))]
+        i=0
+        def p(s):
+            return s==s[::-1]
+        j=n-1
+        def mcm(A,i,j):
+            res=float('inf')
+            if i>=j or p(A[i:j+1]):
+                return 0
+            if dp[i][j]!=-1:
+                return dp[i][j]
+            for k in range(i,j):
+                if dp[i][k]!=-1:
+                    l=dp[i][k]
+                    
+                else:
+                    l=mcm(A,i,k)
+                    dp[i][k]=l
+                
+                if dp[k+1][j]!=-1:
+                    r=dp[k+1][j]
+                    
+                else:
+                    r=mcm(A,k+1,j)
+                    dp[k+1][j]=r
+                    
+                t=l+r+1
+                res=min(t,res)
+            dp[i][j]=res
+            return res
+        return mcm(A,i,j)
+                
+
