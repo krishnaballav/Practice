@@ -1,0 +1,36 @@
+#code
+t=int(input())
+while(t):
+    t-=1
+    a=[]
+    n=int(input())
+    m=0
+    k=list(map(int, input().split()))
+    for i in range(0,len(k),3):// sbko list of list me pel diya
+        a.append((k[i],k[i+1],k[i+2]))
+        m=max(m,k[i+1])
+        #print(k[i+1])
+    a.sort(key=lambda a:-a[2]) // sort a to profit greedy
+    index=[0]*(m+1)
+    c=0
+    for i in range(n):  // asign at greatest possible value near the deadline else ignore
+        j=a[i][1]-1
+    
+        while j>=0:
+            
+            
+            if index[j]!=0 :
+                j-=1
+                
+            else:
+                index[j]=a[i][2]
+                c+=1
+                break
+            
+        
+    #print(a)
+    print (c,sum(index))
+                
+        
+        
+    
