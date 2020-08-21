@@ -1,0 +1,49 @@
+class Solution:
+    def rotate(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        n=len(matrix)
+        res=[[0 for i in range(n)]for j in range(n)]
+        k=0
+        a=[]
+        for i in reversed(range(n)):
+            a.extend(matrix[i])
+            print(a)
+            for j in range(len(matrix)):
+                res[j][k]=a[j]
+            k+=1
+            a=[]
+        print(res)
+        matrix[:]=res
+
+    
+                
+                
+        print(res)
+            
+            
+            
+       //   do in place replacemment
+       
+       
+       class Solution:
+    def rotate(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        n=len(matrix)
+        res=[[0 for i in range(n)]for j in range(n)]
+        k=0
+        a=[]
+        for i in reversed(range(n)):
+            /// swap kro each i k liye i se aage k liye
+            jaise i=2 hai , fir i se jyada k liye swap krlo
+            
+            for j in range(i,n):
+                temp= matrix[i][j]
+                matrix[i][j]=matrix[j][i]
+                matrix[j][i]=temp
+        for i in range(n):
+            matrix[i]=matrix[i][::-1]
+        print(matrix)
