@@ -1,0 +1,33 @@
+#User function Template for python3
+
+'''
+# Node Class:
+class Node:
+    def __init__(self,val):
+        self.data = val
+        self.left = None
+        self.right = None
+'''
+#Complete the function below
+def verticalSum(root):
+    #:param root: root of the given tree.
+    
+    #code here
+    k=[]
+    m={}
+    hd=0
+    vs(root,hd,m)
+    for i,value in enumerate(sorted(m)):
+        k.append(sum(m[value]))
+    return k
+def vs(root , hd,m):
+    if root is None:
+        return 
+    if hd not in m:
+        m[hd]=[root.data]
+    else:
+        m[hd].append(root.data)
+
+   
+    vs(root.left , hd-1 , m)
+    vs(root.right , hd+1 , m)
