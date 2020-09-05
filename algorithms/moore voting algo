@@ -1,0 +1,32 @@
+#code
+t=int(input())
+while(t):
+    t-=1
+    n=int(input())
+    k=list(map(int,input().split()))
+    me=k[0]
+    
+    c=1
+    for i in range(len(k)):
+        if k[i]==me : // if same incerease count by 1 else dec by 1
+            
+            c+=1
+        else:
+            c-=1
+        if c==0:  // id c==0 update me to curr element
+                me=k[i]
+                c=1
+        
+    
+    #print(me)
+    
+    if k.count(me)>n/2:
+            print(me)
+            
+    else:
+        
+        print(-1)
+    
+            
+            
+        
