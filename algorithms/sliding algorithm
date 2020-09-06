@@ -1,0 +1,43 @@
+#code
+t=int(input())
+while(t):
+    t-=1
+    n,c=input().split()
+    a=[]
+    n=int(n)
+    k=list(map(int , input().split()))
+    c=int(c)
+    res=[]
+    m=max(k[:c]) // max of first window
+    index=k.index(m)
+    res.append(index)
+    i=1
+    while(i+c-1<n):
+        s=i
+        e=i+c-1
+        if index>=i and index<=i+c-1 :
+            if k[index]>=k[e]:
+              res.append(index)
+            else:
+                index=e
+                res.append(e)
+        else:
+            mex=0
+            for pq in range(len(k[i:i+c])):
+                if k[i+pq]>mex:
+                    mex=k[i+pq]
+                    index=i+pq
+            res.append(index)
+                    
+                  
+                
+            '''m=max(k[i:i+c])
+            index=k.index(m)
+            res.append(index)'''
+            
+        i+=1
+    #print(res)
+    for j in range(len(res)):
+        res[j]=k[res[j]]
+    print(*res)
+        
