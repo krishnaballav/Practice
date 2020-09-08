@@ -1,0 +1,37 @@
+
+https://leetcode.com/explore/challenge/card/september-leetcoding-challenge/555/week-2-september-8th-september-14th/3453/
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def solve(self,root,m,res):
+        if root is None:
+            return
+        m.append(str(root.val))
+        self.solve(root.left,m,res)
+        if root.left is None and root.right is None:
+            print(m)
+        
+            self.s+=int("".join(m),2)
+            
+        self.solve(root.right,m,res)
+        m.pop(-1)
+    def sumRootToLeaf(self, root: TreeNode) -> int:
+        res=[]
+        m=[]
+        self.s=0
+        self.solve(root,m,res)
+        print(self.s)
+        return self.s
+
+        
+        
+        
+    
+        
+        
+        
