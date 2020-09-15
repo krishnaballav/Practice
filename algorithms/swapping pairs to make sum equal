@@ -1,0 +1,27 @@
+#code
+t=int(input())
+while(t):
+    t-=1
+    n1,n2=map(int,input().split())
+    k1=list(map(int,input().split()))
+    k2=list(map(int,input().split()))
+    target=(sum(k1)-sum(k2))/2
+    if target%2!=0:
+        print (-1)
+    else:
+        flag=0
+        k1.sort()
+        k2.sort()
+        i=0
+        j=0
+        while i<n1 and j<n2:
+            if k1[i]-k2[j]==target:
+                print(1)
+                flag=1
+                break
+            elif k1[i]-k2[j]<target:
+                i+=1
+            elif k1[i]-k2[j]>target:
+                j+=1
+        if flag==0:
+            print(-1)
