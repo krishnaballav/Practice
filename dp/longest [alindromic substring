@@ -1,0 +1,50 @@
+tc O(n*n)
+sc O(n*n)
+
+#code
+t=int(input())
+while(t):
+    t-=1
+    s=input()
+    maxlen=0
+    dp=[[0 for i in range(len(s))]for j in range(len(s))]
+    for i in range(len(s)):
+        dp[i][i]=1
+        maxlen=1
+    start=0
+    end=0
+    for i in range(len(s)-1):
+        if s[i]==s[i+1]:
+                dp[i][i+1]=1
+                if maxlen<2:
+                    maxlen=2
+                    start=i
+                    end=i+1
+                
+                
+        else:
+                dp[i][i+1]=0
+    
+    k=3
+    n=len(s)
+    
+    while k<=n:
+         i=0
+         while i<n-k+1:
+             j=i+k-1
+             if s[i]==s[j]:
+                 if dp[i+1][j-1]==1:
+                     dp[i][j]=1
+                     #print("fjfj",k)
+                     if maxlen<k:
+                         maxlen=k
+                         start=i
+                         end=j
+             
+             i+=1
+         k+=1
+         
+            
+    
+    print(s[start:end+1])            
+    
