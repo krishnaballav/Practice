@@ -1,0 +1,44 @@
+
+# check if level is same and are not cousins
+
+
+def isCousin(root, a, b):
+    # Your code here
+    def height(root,a,h):
+        if root is None:
+            return 0
+        if root.data==a:
+            return h
+        l=height(root.left,a,h+1)  #  or return (height(root,a,b) or return (height(root,a,b))
+        if l:
+            return l
+        r=height(root.right,a,h+1)
+        return r
+        #return height(root.left,a,h+1) or height(root.right,a,h+1)
+    def sibling(root,a,b):
+        if root is None:
+            return 0
+        if not root.left or not root.right:
+            return 
+        
+        
+        return ((root.left.data==a and root.right.data==b )or
+        (root.left.data==b and root.right.data==a )or 
+        sibling(root.left,a,b) or 
+        sibling(root.right,a,b))
+        
+    if root is None:
+        return 0
+    if a==b:
+        return
+    if root.data==a or root.data==b:
+        return 0
+        
+    ha=height(root,a,0)
+    hb=height(root,b,0)
+    '''print(ha,hb)
+
+    if ha==hb and not sibling(root,a,b): # check for same heght and not siblings
+        return 1
+    return 0
+
