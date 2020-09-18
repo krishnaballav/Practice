@@ -1,0 +1,13 @@
+def dfs(g,N):
+    
+    # code here
+    def solve(g,visited,res,root):
+        res.append(root)
+        visited[root]=1
+        for i in g[root]:
+            if visited[i]==0:
+                solve(g,visited,res,i)
+    visited=[0 for i in range(N)]
+    res=[]
+    solve(g,visited,res,0)
+    return res
