@@ -1,0 +1,16 @@
+def bfs(g,N):
+    # code here
+    visited=[0 for i in range(N)] //to keep track of visited node
+    
+    q=[]
+    ans=[]
+    q.append(0)
+    while(q):
+         n=q.pop(0)
+         visited[n]=1  // mar visited to 1
+         ans.append(n)
+         for i in g[n]:  // all neighbout=ring nodes are visited
+             if visited[i]==0: // if not visited then mark visit and append in queue
+                 q.append(i)
+                 visited[i]=1
+    return ans
