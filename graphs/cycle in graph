@@ -1,0 +1,27 @@
+def iscyclic(graph,visited,restack,r):
+        if visited[r]==False:
+            visited[r]=True
+            restack[r]=True
+            
+            for i in graph[r]:
+                if not visited[i] and iscyclic(graph,visited,restack,i):
+                    return True
+                elif restack[i]:
+                    return True
+        restack[r]=False
+        return False
+
+
+def isCyclic(n, graph):
+    # Code here
+    
+            
+    
+    visited=[False for i in range(0,n)]
+    restack=[False for i in range(0,n)]
+    
+    for i in range(n):
+        if not visited[i] and iscyclic(graph,visited,restack,i):
+            return True
+    return False
+    
