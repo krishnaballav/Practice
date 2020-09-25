@@ -1,0 +1,26 @@
+
+using hashmap 
+O(n^2)
+
+t=int(input())
+while(t):
+    t-=1
+    s=input()
+    n=int(input())
+    
+    c=0
+    res=0
+    for i in range(len(s)):
+        d=[0]*27
+        c=0
+        for j in range(i,len(s)):
+            if d[ord(s[j])-97]==0:
+                c+=1
+            d[ord(s[j])-97]+=1
+            if c==n:
+                res+=1
+            if c>n:
+                break
+            
+    print(res)
+            
