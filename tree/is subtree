@@ -1,0 +1,33 @@
+def inorder(T,t):
+    if T is None:
+        return
+    inorder(T.left,t)
+    t=t+str(T.data)
+    inorder(T.right,t)
+def preorder(T,t):
+    if T is None:
+        return
+    t=t+str(T.data)
+    inorder(T.left,t)
+    
+    inorder(T.right,t)
+    
+
+def isSubTree(T1, T2):
+    # Code here
+    if T2 is None:
+        return True
+    if T1 is None:
+        return False
+    t=""
+    inorder(T1,t)
+    tt=""
+    preorder(T1,tt)
+    k=""
+    kk=""
+    inorder(T2,k)
+    preorder(T2,kk)
+    if k in t and kk in tt:
+        return 1
+    else:
+        return 0
