@@ -1,33 +1,64 @@
-def inorder(T,t):
-    if T is None:
-        return
-    inorder(T.left,t)
-    t=t+str(T.data)
-    inorder(T.right,t)
-def preorder(T,t):
-    if T is None:
-        return
-    t=t+str(T.data)
-    inorder(T.left,t)
-    
-    inorder(T.right,t)
-    
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 
-def isSubTree(T1, T2):
-    # Code here
-    if T2 is None:
-        return True
-    if T1 is None:
-        return False
-    t=""
-    inorder(T1,t)
-    tt=""
-    preorder(T1,tt)
-    k=""
-    kk=""
-    inorder(T2,k)
-    preorder(T2,kk)
-    if k in t and kk in tt:
-        return 1
-    else:
-        return 0
+class Solution:
+    
+    def inorder(self,T):
+        global strin
+        if T is None:
+            strin=strin+"$"
+            return
+        self.inorder(T.left)
+        strin=strin+str(T.val)
+        self.inorder(T.right)
+    def preorder(self,T):
+        global strin
+        if T is None:
+            strin+="$"
+            return
+        strin+=str(T.val)
+        
+        self.preorder(T.left)
+    
+        self.preorder(T.right)
+        
+        
+    def isSubtree(self, s: TreeNode, t: TreeNode) -> bool:
+        
+        if s is None:
+            return 0
+        if t is None:
+            return 1
+        global strin
+        strin = ''
+        t1=""
+        self.inorder(s)
+        t1=strin
+        string=""
+        #print(t1,"jj")
+        tt=""
+        self.preorder(s)
+        tt=strin
+        strin=""
+        print(tt)
+        k=""
+        kk=""
+        self.inorder(t)
+        k=strin
+        strin=""
+        self.preorder(t)
+        kk=strin
+        strin=""
+        print(k,t1)
+        print(kk,tt)
+        if k in t1 and kk in tt:
+            return 1
+        else:
+            return 0
+    
+    
+        
