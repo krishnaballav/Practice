@@ -1,0 +1,16 @@
+import heapq
+
+class Solution:
+    def printKClosest(self, arr, n, k, x):
+        # code here
+        p=[]
+        ans=[]
+        heapq.heapify(p)
+        for i in range(n):
+            if arr[i]!=x:
+              heapq.heappush(p,(-1*abs(arr[i]-x),arr[i]))
+              if len(p)>k:
+                heapq.heappop(p)
+        for i in range(k):
+            ans.append((heapq.heappop(p))[1])
+        return ans[::-1]
