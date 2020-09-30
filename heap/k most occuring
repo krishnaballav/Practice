@@ -1,0 +1,26 @@
+import heapq
+def kMostFrequent(a,n,k) :
+    '''
+    use heapq module , imported already by driver code.
+    :param a: given array
+    :param n: size of array
+    :param k: value of k
+    :return: Integer
+    '''
+    # code here
+    p=[]
+    d={}
+    heapq.heapify(p)
+    for i in range(n):
+        if a[i] not in d:
+            d[a[i]]=1
+        else:
+            d[a[i]]+=1
+    for i,j in d.items():
+        heapq.heappush(p,(j,i))
+        if len(p)>k:
+            heapq.heappop(p)
+    ans=0
+    for i in range(k):
+        ans+=(heapq.heappop(p)[0])
+    return ans
