@@ -1,0 +1,22 @@
+#User function Template for python3
+def minCost(a,n) :
+    '''
+    use heapq module , imported already by driver code.
+    :param a: given array
+    :param n: size of array
+    :return: Integer
+    '''
+    # code here
+    sum=0
+    heapq.heapify(a)
+    while len(a)>=2:
+        p=heapq.heappop(a)
+        q=heapq.heappop(a)
+        #print(p,q)
+        
+        sum+=(p+q)
+        
+        heapq.heappush(a,p+q)
+        #print(a)
+        
+    return sum
