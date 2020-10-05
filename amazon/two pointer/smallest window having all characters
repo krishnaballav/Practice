@@ -1,0 +1,38 @@
+#code
+#https://www.youtube.com/watch?v=eS6PZLjoaq8
+t=int(input())
+while t:
+    t-=1
+    s=input()
+    p=input()
+    if len(p)>len(s):
+        print(-1)
+        continue
+    sd=[0]*256
+    pd=[0]*256
+    for i in p:
+        pd[ord(i)]+=1
+    start=0
+    st_i=-1
+    count=0
+    l=float('inf')
+    for r in range(0,len(s)):
+        sd[ord(s[r])]+=1
+        if pd[ord(s[r])]!=0 and sd[ord(s[r])] <=pd[ord(s[r])] :
+            count+=1
+        
+        if count==len(p):
+            
+            while sd[ord(s[start])] > pd[ord(s[start])] or pd[ord(s[start])]==0:
+                if sd[ord(s[start])] > pd[ord(s[start])]:
+                  sd[ord(s[start])]-=1  
+                start+=1
+            length=r-start+1
+            if l>length:
+                l=length
+                st_i=start
+    if st_i!=-1:
+        print(s[st_i:st_i+l])
+    else:
+        print(-1)
+    
