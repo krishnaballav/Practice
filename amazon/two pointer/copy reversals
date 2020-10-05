@@ -1,0 +1,35 @@
+#code
+# pehle jo sahi baith rha usko hta do
+fir baki e maths lga lo
+
+from collections import deque
+t=int(input())
+while(t):
+    t-=1
+    s=input()
+    q=[]
+    i=0
+    while i<len(s):
+        if s[i]=="{":
+            q.append(s[i])
+        elif s[i]=="}":
+            if len(q)==0:
+                q.append(s[i])
+            elif q[-1]=='{':
+                q.pop(-1)
+            else:
+                q.append(s[i])
+        i+=1
+    a=0
+    b=0
+    while len(q):
+        if q[-1]=='{':
+            a+=1
+            q.pop(-1)
+        else:
+            b+=1
+            q.pop(-1)
+    if (a+b)%2!=0:
+        print(-1)
+    else:
+        print( (a+b)//2 + b%2)  // maths yha hai
